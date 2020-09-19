@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="card card-container">
+<!--     <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" />-->
+    <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"/>
+    <p class="profile-name-card">Login</p>
+    <form>
+      <mat-form-field style="width: 265px">
+        <mat-label>Tên đăng nhập</mat-label>
+        <input matInput [formControl]="email" required/>
+        <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+          Email sai định dạng
+        </mat-error>
+        <mat-error *ngIf="email.hasError('required')">
+          Email không được để trống
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field style="width: 265px">
+        <mat-label>Mật khẩu</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="password.hasError('required')">
+          Mật khẩu không được để trống
+        </mat-error>
+      </mat-form-field>
+      <button class="btn btn-success btn-block mt-10" (click)="login()" [disabled]="password.invalid || email.invalid">
+        Đăng nhập
+      </button>
+    </form><!-- /form -->
+    <a [routerLink]="['/register']" class="btn btn-link">Tạo tài khoản!</a>
+    <a [routerLink]="['/forgot-password']" class="btn btn-link"><small>Quên mật khẩu?</small></a>
+  </div><!-- /card-container -->
+</div><!-- /container -->
+

@@ -1,0 +1,82 @@
+<div class="container">
+
+  <div class="card o-hidden border-0 shadow-lg my-5">
+    <div class="card-body p-0">
+      <!-- Nested Row within Card Body -->
+      <div class="row">
+        <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+        <div class="col-lg-7">
+          <div class="p-5">
+            <div class="text-center">
+              <h1 class="h4 text-gray-900 mb-4">Tạo tài khoản</h1>
+            </div>
+            <form class="user" [formGroup]="formRegister">
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="Tên" formControlName="firstName" maxlength="255">
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Họ" formControlName="lastName" maxlength="255">
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email" formControlName="email" maxlength="255">
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-12 mb-12 mb-sm-0">
+                  <input type="text" class="form-control form-control-user" id="examplePhoneNumber" placeholder="Số điện thoại" formControlName="phoneNumber" maxlength="50">
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                  <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Mật khẩu" formControlName="password">
+                </div>
+                <div class="col-sm-6">
+                  <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Nhập lại mật khẩu" formControlName="confirmPassword">
+                </div>
+              </div>
+              <a (click)="openConfirm(insert)" class="btn btn-primary btn-user btn-block" style="color: white">
+                Tạo Tài khoản
+              </a>
+            </form>
+            <hr>
+            <div class="text-center">
+              <a class="small" routerLink="/forgot-password">Quên mật khẩu?</a>
+            </div>
+            <div class="text-center">
+              <a class="small" routerLink="/login">Bạn đã có tài khoản? Đăng nhập</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<ng-template #insert>
+  <div class="row" style="margin-right: 0 !important; margin-left: 0 !important;">
+    <div class="col-md-10 modal-body">
+      <span> <img style="margin: 0 3px 3px 0;" src="assets/icons8-question-mark-16.png"
+                  alt="">Bạn có chắc chắn muốn đăng kí</span>
+    </div>
+
+    <div class="col-md-2 modal-body">
+      <button type="button" class="close pull-right" aria-label="Close" (click)="onBack()" size="6MB">
+        <span aria-hidden="true" style="border: none">&times;</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary click-btn-upload" (click)=onBack() style="width: 88.64px;"><i
+      class="fa fa-times"></i>
+      Không
+    </button>
+    <button class="btn btn-primary click-btn-upload" type="button" (click)=register() style="width: 88.64px;"><i
+      class="fa fa-check"></i>
+      Có
+    </button>
+  </div>
+</ng-template>
+

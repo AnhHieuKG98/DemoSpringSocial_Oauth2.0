@@ -1,0 +1,23 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div class="container">
+  <h1 style="text-align: center; color: cornflowerblue">Spring Boot Oauth2</h1>
+  <div class="btn-oauth2 p-3">
+    <button class="btn btn-success btn-block mt-10 container mt-5" (click)="getCategory()">
+      Xem danh sách thể loại
+    </button>
+    <button class="btn btn-success btn-block mt-10 container mt-5 ml-5" (click)="login()">
+      {{titleBtn}}
+    </button>
+    <button class="btn btn-success btn-block mt-10 container mt-5 ml-5" (click)="register()">
+      Đăng kí
+    </button>
+    <button class="btn btn-success btn-block mt-10 container mt-5 ml-5" (click)="forgotPassword()">
+      Quên mật khẩu
+    </button>
+  </div>
+  <div>
+    <h3 *ngIf="userCurrent">Chào mừng: {{userCurrent}}</h3>
+  </div>
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,43 @@
+<div>
+  <div class="category-do-an mt-5">
+    <h1>Danh sách thể loại</h1>
+</div>
+<div class="row mt-4">
+  <div class="col-md-12">
+    <div class="table-responsive">
+      <table class="table table-striped table-hover">
+        <thead class="header-table">
+        <tr style="background-color: aliceblue">
+          <th> STT</th>
+          <th>Tên thể loại</th>
+          <th>Ngày tạo</th>
+        </tr>
+        </thead>
+
+        <tbody *ngIf="listCate && listCate.length === 0">
+        <tr>
+          <td colspan="9" align="center" style="background: white">
+            Không có dữ liệu
+          </td>
+        </tr>
+        </tbody>
+
+        <tbody *ngIf="listCate && listCate.length > 0">
+        <tr
+          *ngFor="let eachCate of listCate | paginate: {id:'productPagination', itemsPerPage: pageSize, currentPage: currentP, totalItems: listCate.length}, index as i">
+          <td class="text-center">{{currentP * pageSize - (pageSize - 1) + i}}</td>
+          <td (click)="getData(eachCate.id, eachCate.categoryName)">
+            <div data-toggle="tooltip" title="{{eachCate.categoryName}}">{{eachCate.categoryName}}</div>
+          </td>
+          <td (click)="getData(eachCate.id, eachCate.categoryName)">
+            <div data-toggle="tooltip" title="{{eachCate.createDate}}">{{eachCate.createDate}}</div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
